@@ -287,7 +287,6 @@ nav .nav-header button {
   cursor: pointer;
 }
 nav .links-container {
-  height: 0;
   overflow: hidden;
   transition: 200ms all linear;
 }

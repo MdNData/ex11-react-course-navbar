@@ -5,7 +5,9 @@ import { useRef, useState } from "react";
 
 export const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
-  const linksNum = useRef(links.length);
+  const linksNum = links.length;
+  const linksContainerRef = useRef(null);
+  const linksRef = useRef(null);
 
   return (
     <nav>
@@ -25,6 +27,8 @@ export const Navbar = () => {
             className="nav-toggle"
             onClick={() => {
               setShowLinks(!showLinks);
+              console.log(linksContainerRef.current);
+              console.log(linksRef.current.getBoundingClientRect());
             }}
           >
             <FaBars />
@@ -32,9 +36,10 @@ export const Navbar = () => {
         </div>
         <div
           className="links-container"
-          style={showLinks ? { height: linksNum.current * 32 } : { height: 0 }}
+          ref={linksContainerRef}
+          style={showLinks ? { height: linksNum * 32 } : { height: 0 }}
         >
-          <ul>
+          <ul ref={linksRef}>
             {links.map((item) => {
               return (
                 <li key={item.id}>
