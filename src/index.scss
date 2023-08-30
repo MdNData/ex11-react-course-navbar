@@ -283,10 +283,14 @@ nav {
   .links-container {
     overflow: hidden;
     transition: 200ms all linear;
+
+    ul {
+      padding-bottom: 10px;
+    }
+
     li {
       font-size: 16px;
       text-transform: capitalize;
-      padding: 8px 16px;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
@@ -295,6 +299,8 @@ nav {
       a {
         transition: 200ms all linear;
         color: black;
+        display: block;
+        padding: 8px 16px;
       }
 
       &:hover {
@@ -304,6 +310,63 @@ nav {
 
         a {
           color: #49a6a9;
+        }
+      }
+    }
+  }
+
+  .social-links {
+    display: none;
+  }
+
+  @media screen and (min-width: 800px) {
+    button {
+      display: none;
+    }
+    .nav-header {
+      padding: 0;
+    }
+    .nav-center {
+      max-width: 1170px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+    }
+    .links-container {
+      height: auto !important;
+      ul {
+        display: flex;
+        gap: 16px;
+        padding: 0;
+
+        li {
+          &:hover {
+            padding: 0;
+            background-color: transparent;
+          }
+
+          a {
+            padding: 0px;
+          }
+        }
+      }
+    }
+    .social-links {
+      display: block;
+      ul {
+        display: flex;
+        gap: 10px;
+
+        li {
+          a {
+            color: black;
+
+            &:hover {
+              color: #1a6aa2;
+            }
+          }
         }
       }
     }

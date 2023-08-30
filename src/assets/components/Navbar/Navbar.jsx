@@ -5,9 +5,13 @@ import { useRef, useState } from "react";
 
 export const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
-  const linksNum = links.length;
-  const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
+
+  const linkStyles = {
+    height: showLinks
+      ? linksRef.current.getBoundingClientRect().height + "px"
+      : 0,
+  };
 
   return (
     <nav>
@@ -27,23 +31,29 @@ export const Navbar = () => {
             className="nav-toggle"
             onClick={() => {
               setShowLinks(!showLinks);
-              console.log(linksContainerRef.current);
-              console.log(linksRef.current.getBoundingClientRect());
             }}
           >
             <FaBars />
           </button>
         </div>
-        <div
-          className="links-container"
-          ref={linksContainerRef}
-          style={showLinks ? { height: linksNum * 32 } : { height: 0 }}
-        >
+        <div className="links-container" style={linkStyles}>
           <ul ref={linksRef}>
             {links.map((item) => {
               return (
                 <li key={item.id}>
                   <a href={item.url}>{item.text}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="social-links">
+          <ul>
+            {social.map((item) => {
+              const { id, url, icon } = item;
+              return (
+                <li key={id}>
+                  <a href={url}>{icon}</a>
                 </li>
               );
             })}

@@ -290,16 +290,20 @@ nav .links-container {
   overflow: hidden;
   transition: 200ms all linear;
 }
+nav .links-container ul {
+  padding-bottom: 10px;
+}
 nav .links-container li {
   font-size: 16px;
   text-transform: capitalize;
-  padding: 8px 16px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   transition: 200ms all linear;
 }
 nav .links-container li a {
   transition: 200ms all linear;
   color: black;
+  display: block;
+  padding: 8px 16px;
 }
 nav .links-container li:hover {
   background-color: #c5e5fc;
@@ -308,4 +312,51 @@ nav .links-container li:hover {
 }
 nav .links-container li:hover a {
   color: #49a6a9;
+}
+nav .social-links {
+  display: none;
+}
+@media screen and (min-width: 800px) {
+  nav button {
+    display: none;
+  }
+  nav .nav-header {
+    padding: 0;
+  }
+  nav .nav-center {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+  }
+  nav .links-container {
+    height: auto !important;
+  }
+  nav .links-container ul {
+    display: flex;
+    gap: 16px;
+    padding: 0;
+  }
+  nav .links-container ul li:hover {
+    padding: 0;
+    background-color: transparent;
+  }
+  nav .links-container ul li a {
+    padding: 0px;
+  }
+  nav .social-links {
+    display: block;
+  }
+  nav .social-links ul {
+    display: flex;
+    gap: 10px;
+  }
+  nav .social-links ul li a {
+    color: black;
+  }
+  nav .social-links ul li a:hover {
+    color: #1a6aa2;
+  }
 }/*# sourceMappingURL=index.css.map */
